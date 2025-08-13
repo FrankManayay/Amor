@@ -1,0 +1,124 @@
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: #fff0f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.gift-container{
+    position: relative;
+    width:200px;
+    height:200px;
+    cursor: pointer;
+}
+.gift-box{
+    position: relative;
+    width:100%;
+    height:100%;
+}
+.lid{
+    position: absolute;
+    top:0;
+    width:100%;
+    height:50%;
+    background:#ff4d6d;
+    border-bottom:5px solid #b32446;
+    transform-origin: bottom;
+    transition: transform 1s ease;
+    z-index:2;
+}
+.box{
+    position: absolute;
+    bottom:0;
+    width:100%;
+    height:70%;
+    background:#ff4d6d;
+    border-top:5px solid #b32446;
+}
+.ribbon{
+    position: absolute;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+    width:20px;
+    height:100%;
+    background: #fff200;
+}
+.content{
+    display:none;
+    text-align:center;
+    padding:20px;
+    animation: fadeIn 2s ease;
+}
+.photos{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top:20px;
+}
+.photos img{
+    width:120px;
+    height:120px;
+    object-fit: cover;
+    border:5px solid white;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    transform: rotate(-3deg);
+    transition: transform 0.3s ease;
+}
+.photos img:hover{
+    transform: scale(1.05);
+}
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+/* Contenedor de corazones */
+.corazones {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Corazones individuales */
+.corazon {
+    position: absolute;
+    color: #ff0040;
+    font-size: 24px;
+    animation: flotar 6s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+    }
+    30% { opacity: 1; }
+    100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Animación de entrada y salida */
+@keyframes aparecerDesaparecer {
+    0% { opacity: 0; transform: translateY(20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+
+#mensaje.animado {
+    animation: aparecerDesaparecer 6s ease forwards;
+    text-align: center;
+    margin-top: 10px;
+}
